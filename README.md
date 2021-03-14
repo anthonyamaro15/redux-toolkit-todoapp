@@ -1,1 +1,1 @@
-# redux-toolkit-todoapp
+# Getting Started with Create React App
