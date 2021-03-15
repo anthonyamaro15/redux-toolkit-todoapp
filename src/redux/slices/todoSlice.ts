@@ -17,10 +17,13 @@ const todoSlice = createSlice({
       newTodo: (state, action) => {
          // copy everything from todoData and add new todo
          state.todoData = [...state.todoData, action.payload]
+      },
+      deleteTodo: (state, action) => {
+         state.todoData = action.payload
       }
    }
 });
 
-export const { newTodo } = todoSlice.actions;
+export const { newTodo, deleteTodo } = todoSlice.actions;
 export const todos = (state: RootState) => state.todoSlice.todoData
 export default todoSlice.reducer;

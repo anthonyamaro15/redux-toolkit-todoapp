@@ -1,5 +1,6 @@
-import {  useSelector } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import { Todos } from '../interfaces';
+import { deleteTodo } from '../redux/slices/todoSlice';
 import DisplayTodos from './DisplayTodos';
 import TodoForm from './TodoForm';
 
@@ -13,11 +14,17 @@ interface ReducerProps {
 
 const MainApp = () => {
    const { todoData } = useSelector((state: ReducerProps) => state.todoSlice);
+   const dispatch = useDispatch();
+   
+   const removeTodo = (obj: Todos) => {
+      const filterTodo = todoData.filter(todo => todo.id !== obj.id);
+      dispatch(deleteTodo(filterTodo));
+   } 
    
    return (
       <div>
          <TodoForm />
-         <DisplayTodos todoData={todoData} />
+         <DisplayTodos todoData={todoData} removeTodo={removeTodo} />
       </div>
    )
 }

@@ -1,4 +1,5 @@
 export interface Todos {
    todo: string;
-   isCompleted: boolean; 
+   isCompleted: boolean;
+   id: string;
 }
