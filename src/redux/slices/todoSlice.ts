@@ -1,14 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Todos } from '../../interfaces';
 import { RootState } from '../store';
 
-interface TodosProps {
-   todo: string;
-   isCompleted: boolean;
+interface InitialStateProps {
+   todoData: Todos[];
 }
 
-interface InitialStateProps {
-   todoData: TodosProps[];
-}
 const initialState: InitialStateProps = {
    todoData: []
 }
