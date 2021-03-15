@@ -8,7 +8,7 @@ const TodoForm = () => {
    const { register, handleSubmit, reset } = useForm();
    
    const addTodo = (value: Todos) => {
-      dispatch(newTodo({...value, isCompleted: false }));
+      dispatch(newTodo({...value, isCompleted: false, id: new Date().toISOString() }));
       reset();
    }
 
