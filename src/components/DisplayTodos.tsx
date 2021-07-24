@@ -7,15 +7,17 @@ interface Props {
 
 const DisplayTodos: React.FC<Props> = ({ todoData, removeTodo }) => {
    return (
-         <div className="todoData-container">
-            {todoData.map((item, i) => (
-               <div key={i}>
-                  <p onClick={() => removeTodo(item)}>{item.todo}</p>
-                  <p>{item.isCompleted}</p>
-               </div>
-            ))}
-         </div>
-   )
-}
+      <div className="todoData-container">
+         {todoData.map((item, i) => (
+            <div key={i}>
+               <p className="single-todo" onClick={() => removeTodo(item)}>
+                  {item.todo}
+               </p>
+               <p>{item.isCompleted}</p>
+            </div>
+         ))}
+      </div>
+   );
+};
 
 export default DisplayTodos;
